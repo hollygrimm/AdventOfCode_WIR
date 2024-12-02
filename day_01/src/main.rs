@@ -89,7 +89,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             return Err(Box::new(AppError::ValueTooLarge(MAX_VALUE)));
         }
 
-        if list1.len() >= MAX_LIST_SIZE {
+        if list1.len() == MAX_LIST_SIZE {
             return Err(Box::new(AppError::ListTooLong(MAX_LIST_SIZE)));
         }
         
