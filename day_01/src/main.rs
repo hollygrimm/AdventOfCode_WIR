@@ -92,9 +92,6 @@ fn main() -> Result<(), Box<dyn Error>> {
         if list1.len() >= MAX_LIST_SIZE {
             return Err(Box::new(AppError::ListTooLong(MAX_LIST_SIZE)));
         }
-        if list2.len() >= MAX_LIST_SIZE {
-            return Err(Box::new(AppError::ListTooLong(MAX_LIST_SIZE)));
-        }
         
         list1.push(numbers[0]);
         list2.push(numbers[1]);
