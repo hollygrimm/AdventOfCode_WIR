@@ -1,13 +1,13 @@
 use crate::errors::AppError;
-use once_cell::sync::Lazy;
+use std::sync::LazyLock;
 
 // Regular expression to match multiplication expressions like mul(123,456)
-static PRODUCT_RE: Lazy<regex::Regex> =
-    Lazy::new(|| regex::Regex::new(r"mul\((\d{1,3}),(\d{1,3})\)").unwrap());
+static PRODUCT_RE: LazyLock<regex::Regex> =
+    LazyLock::new(|| regex::Regex::new(r"mul\((\d{1,3}),(\d{1,3})\)").unwrap());
 
 // Regular expression to match do, don't, and multiplication expressions
-static DO_DONT_RE: Lazy<regex::Regex> =
-    Lazy::new(|| regex::Regex::new(r"(do\(\)|don't\(\)|mul\((\d{1,3}),(\d{1,3})\))").unwrap());
+static DO_DONT_RE: LazyLock<regex::Regex> =
+    LazyLock::new(|| regex::Regex::new(r"(do\(\)|don't\(\)|mul\((\d{1,3}),(\d{1,3})\))").unwrap());
 
 /// Calculates the total product of all multiplication expressions in the input string
 ///
